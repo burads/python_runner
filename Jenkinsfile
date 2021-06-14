@@ -1,4 +1,11 @@
 node {
+  stage('Print Env') {  
+    sh 'printenv'
+  }
+  stage('checkout SCM') {  
     checkout scm
-    def customImage = docker.build("my-image:${env.BUILD_ID}")
+  }
+  stage('build image'){
+    def customImage = docker.build("python-runner:${env.BUILD_ID}")
+  }
 }
