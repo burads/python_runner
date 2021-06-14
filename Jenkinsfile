@@ -1,10 +1,11 @@
 node("mini") {
+  def customImage
   stage('checkout SCM') {  
     checkout scm
   }
   try{
     stage('build image'){
-      def customImage = docker.build("python-runner:${env.BUILD_ID}")
+      customImage = docker.build("python-runner:${env.BUILD_ID}")
       print customImage
     }
   } finally {
