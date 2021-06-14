@@ -1,4 +1,4 @@
-node {
+node("mini") {
   stage('Print Env') {  
     sh 'printenv'
   }
